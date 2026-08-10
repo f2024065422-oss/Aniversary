@@ -638,23 +638,23 @@ Amina BIBI 😂
         let isPlaying = false;
         let audio = null;
 
-        function initAudio() {
+       function initAudio() {
     if (!audio) {
         audio = new Audio();
-        // Using a reliable, working HTTPS music URL
-        audio.src = 'bg.mp3.mp3';
+        // Using your uploaded music file
+        audio.src = 'mixkit-classical-vibes-3-683.mp3';
         audio.loop = true;
         audio.volume = 0.25;
 
-        // Fallback if the first one fails
+        // Fallback if your file doesn't load
         audio.addEventListener('error', function() {
-            audio.src = 'bg.mp3.mp3';
+            console.log('Music file not found. Using backup...');
+            audio.src = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
             audio.load();
         });
     }
     return audio;
 }
-
         function toggleMusic() {
             const a = initAudio();
             if (isPlaying) {
