@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Year 4 ❤️ Our First Meetup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #fcfaf8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .year4-container {
+            max-width: 700px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 50px 40px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(200, 180, 160, 0.15);
+            text-align: center;
+            animation: fadeUp 0.8s ease;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .year4-container .year-badge {
+            font-size: 1rem;
+            color: #c9a87c;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .year4-container h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            margin-bottom: 6px;
+        }
+
+        .year4-container h1 span {
+            color: #c9a87c;
+        }
+
+        .year4-container .date {
+            font-size: 1.1rem;
+            color: #9a8b7a;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #f0ebe5;
+            padding-bottom: 20px;
+        }
+
+        .year4-container .photo-wrapper {
+            margin: 20px 0 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+            border: 2px solid #f0ebe5;
+        }
+
+        .year4-container .photo-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .year4-container .story {
+            font-size: 1.1rem;
+            color: #4a3f34;
+            line-height: 1.9;
+            font-style: italic;
+            padding: 0 10px;
+            margin-bottom: 25px;
+        }
+
+        .year4-container .story strong {
+            color: #c9a87c;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .year4-container .btn-back {
+            background: #ffffff;
+            border: 1.5px solid #c9a87c;
+            color: #c9a87c;
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.3s;
+            letter-spacing: 2px;
+            background: #fcfaf8;
+            margin-top: 10px;
+        }
+
+        .year4-container .btn-back:hover {
+            background: #c9a87c;
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(201, 168, 124, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .year4-container .footer-note {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #d6cdc0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-top: 1px solid #f0ebe5;
+            padding-top: 20px;
+        }
+
+        .year4-container .footer-note strong {
+            color: #c9a87c;
+            font-weight: 400;
+        }
+
+        /* Floating hearts in background */
+        .heart-float {
+            position: fixed;
+            font-size: 1.4rem;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+            animation: floatHeart 20s linear infinite;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(110vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.08;
+            }
+            90% {
+                opacity: 0.08;
+            }
+            100% {
+                transform: translateY(-20vh) rotate(720deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .year4-container {
+                padding: 30px 20px;
+            }
+            .year4-container h1 {
+                font-size: 2rem;
+            }
+            .year4-container .story {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating hearts -->
+    <div id="hearts-container"></div>
+
+    <div class="year4-container">
+        <div class="year-badge">✦ Year 4 ✦</div>
+        <h1>Our First <span>Meetup</span></h1>
+        <div class="date">27th October 2024 · Our Birthday 24th October 2005🎂</div>
+
+        <!-- PHOTO GOES HERE -->
+        <div class="photo-wrapper">
+            <img src="meetup.jpg" alt="Our first meetup" id="meetupPhoto" />
+        </div>
+
+        <div class="story">
+            <strong>🎂 27th October 2024</strong> — the day I finally met you in person.<br />
+            It was our birthday, and we celebrated it together.<br /><br />
+            That day, the world stopped. I saw you, and nothing else mattered.<br />
+            Since then, every <strong>27th October</strong> is our day —<br />
+             our first meetup anniversary.<br /><br />
+            <em style="color:#c9a87c;">"From that day on, I knew — you were my forever."</em>
+        </div>
+
+        <button class="btn-back" onclick="window.close()">💕 Back to our memories</button>
+
+        <div class="footer-note">
+            <strong>Moon &amp; Moto</strong> &nbsp;·&nbsp; 27.10.2024 &nbsp;·&nbsp; ∞
+        </div>
+    </div>
+
+    <script>
+        // Floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const symbols = ['❤️', '✦', '♡', '♥'];
+            for (let i = 0; i < 25; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (15 + Math.random() * 25) + 's';
+                heart.style.animationDelay = (Math.random() * 20) + 's';
+                heart.style.fontSize = (0.8 + Math.random() * 1.8) + 'rem';
+                container.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        // If photo doesn't load, show placeholder
+        document.getElementById('meetupPhoto').addEventListener('error', function() {
+            this.style.display = 'none';
+            const wrapper = this.parentElement;
+            const fallback = document.createElement('div');
+            fallback.style.padding = '60px 20px';
+            fallback.style.background = '#fcfaf8';
+            fallback.style.color = '#c9a87c';
+            fallback.style.fontSize = '1.2rem';
+            fallback.textContent = '📸 Add your photo as "meetup.jpg" in the same folder';
+            wrapper.appendChild(fallback);
+        });
+    </script>
+
+</body>
+</html>

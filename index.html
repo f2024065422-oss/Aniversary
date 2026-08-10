@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahmina ❤️ 4 Years</title>
+    <style>
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* ---------- MAIN CONTAINER ---------- */
+        .container {
+            max-width: 920px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(200, 180, 160, 0.15);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ---------- TYPOGRAPHY ---------- */
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #2c2c2c;
+            margin-bottom: 6px;
+        }
+
+        h1 span {
+            color: #c9a87c;
+            font-style: italic;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #9a8b7a;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #f0ebe5;
+            padding-bottom: 20px;
+        }
+
+        /* ---------- COUNTDOWN ---------- */
+        .countdown {
+            font-size: 0.9rem;
+            color: #b8aa9a;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .countdown strong {
+            color: #c9a87c;
+            font-weight: 400;
+        }
+
+        /* ---------- MUSIC PLAYER ---------- */
+        .music-player {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: white;
+            border-radius: 60px;
+            padding: 12px 20px 12px 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08), 0 0 0 1px #f0ebe5;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .music-player:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            transform: scale(1.02);
+        }
+        .music-player .music-icon {
+            font-size: 1.4rem;
+            animation: spin 4s linear infinite;
+            display: inline-block;
+        }
+        .music-player .music-icon.paused {
+            animation: none;
+        }
+        .music-player .music-label {
+            font-size: 0.75rem;
+            color: #9a8b7a;
+            letter-spacing: 1px;
+            font-family: 'Georgia', serif;
+        }
+        .music-player .music-status {
+            font-size: 0.7rem;
+            color: #c9a87c;
+            font-weight: 300;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ---------- STAGE 1: INTRO ---------- */
+        #intro {
+            padding: 30px 10px;
+        }
+
+        #intro .big-4 {
+            font-size: 8rem;
+            font-weight: 300;
+            color: #e8ddd0;
+            letter-spacing: 10px;
+            line-height: 1;
+            margin-bottom: 10px;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%,
+            100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.02);
+            }
+        }
+
+        #intro p {
+            font-size: 1.3rem;
+            color: #5a4f42;
+            margin: 20px 0 30px;
+            font-style: italic;
+        }
+
+        #intro .btn-start {
+            background: #ffffff;
+            border: 1.5px solid #c9a87c;
+            color: #c9a87c;
+            padding: 16px 48px;
+            font-size: 1.2rem;
+            font-family: 'Georgia', serif;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.3s;
+            letter-spacing: 2px;
+            background: #fcfaf8;
+        }
+
+        #intro .btn-start:hover {
+            background: #c9a87c;
+            color: #ffffff;
+            box-shadow: 0 8px 25px rgba(201, 168, 124, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* ---------- STAGE 2: BOXES ---------- */
+        #boxes-stage {
+            display: none;
+            animation: fadeUp 0.6s ease;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .boxes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 24px;
+            margin: 30px 0 20px;
+        }
+
+        .box-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 30px 12px 20px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.04), 0 0 0 1px #f0ebe5;
+            cursor: pointer;
+            transition: 0.3s ease;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.06), 0 0 0 1px #dccfc0;
+        }
+
+        .box-card .year-label {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #c9a87c;
+            letter-spacing: 2px;
+        }
+
+        .box-card .box-icon {
+            font-size: 2.8rem;
+            margin-bottom: 6px;
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+
+        .box-card:hover .box-icon {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+
+        .box-card .box-status {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #bbb0a2;
+            margin-top: 10px;
+        }
+
+        .box-card.opened {
+            background: #fcfaf8;
+            border-color: #dccfc0;
+            cursor: default;
+        }
+
+        .box-card.opened .box-icon {
+            opacity: 0.3;
+        }
+
+        .box-card .reveal-content {
+            display: none;
+            font-size: 0.9rem;
+            color: #4a3f34;
+            line-height: 1.7;
+            margin-top: 12px;
+            padding: 0 6px;
+            font-style: italic;
+            max-width: 230px;
+        }
+
+        .box-card.opened .reveal-content {
+            display: block;
+            animation: fadeUp 0.4s ease;
+        }
+
+        .box-card.opened .year-label,
+        .box-card.opened .box-status {
+            display: none;
+        }
+
+        .box-card .reveal-content strong {
+            font-style: normal;
+            color: #c9a87c;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- SPECIAL STYLING FOR BOX 4 ---------- */
+        .box-card[data-box="4"] .reveal-content {
+            font-size: 1rem;
+        }
+
+        .box-card[data-box="4"] .btn-open-year4 {
+            display: none;
+            background: #c9a87c;
+            color: #ffffff;
+            border: none;
+            padding: 10px 30px;
+            font-size: 0.9rem;
+            font-family: 'Georgia', serif;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.3s;
+            letter-spacing: 1px;
+            margin-top: 12px;
+        }
+
+        .box-card[data-box="4"].opened .btn-open-year4 {
+            display: inline-block;
+        }
+
+        .box-card[data-box="4"] .btn-open-year4:hover {
+            background: #b8976a;
+            transform: scale(1.02);
+        }
+
+        /* ---------- HIDDEN 5th BOX ---------- */
+        #hidden-box {
+            display: none;
+            margin: 30px auto 10px;
+            background: #ffffff;
+            border: 2px dashed #c9a87c;
+            border-radius: 30px;
+            padding: 30px 20px;
+            max-width: 540px;
+            animation: fadeUp 0.7s ease;
+        }
+
+        #hidden-box .heart-icon {
+            font-size: 2.4rem;
+            margin-bottom: 6px;
+        }
+
+        #hidden-box h3 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #c9a87c;
+            letter-spacing: 2px;
+        }
+
+        #hidden-box .love-letter {
+            font-size: 1.05rem;
+            color: #3d352c;
+            line-height: 1.8;
+            margin: 20px 0 10px;
+            padding: 0 8px;
+            font-style: italic;
+            white-space: pre-line;
+        }
+
+        #hidden-box .btn-open-letter {
+            background: #c9a87c;
+            color: #ffffff;
+            border: none;
+            padding: 12px 40px;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.3s;
+            letter-spacing: 1px;
+            margin-top: 6px;
+        }
+
+        #hidden-box .btn-open-letter:hover {
+            background: #b8976a;
+            transform: scale(1.02);
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer-note {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #d6cdc0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-top: 1px solid #f0ebe5;
+            padding-top: 24px;
+        }
+
+        .footer-note strong {
+            color: #c9a87c;
+            font-weight: 400;
+        }
+
+        /* ---------- FLOATING PETALS ---------- */
+        .petal {
+            position: fixed;
+            width: 14px;
+            height: 14px;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #f5f0ea);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+            animation: fall linear infinite;
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-20px) rotate(0deg) scale(0.6);
+                opacity: 0.2;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            #intro .big-4 {
+                font-size: 5rem;
+            }
+            .boxes-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+            .box-card {
+                min-height: 170px;
+                padding: 18px 8px;
+            }
+            .box-card .year-label {
+                font-size: 1.3rem;
+            }
+            .music-player {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 14px 10px 12px;
+            }
+            .music-player .music-label {
+                font-size: 0.65rem;
+            }
+            .box-card .reveal-content {
+                font-size: 0.8rem;
+                max-width: 180px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .boxes-grid {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== FLOATING PETALS ===== -->
+    <div id="petals-container"></div>
+
+    <!-- ===== MUSIC PLAYER ===== -->
+    <div class="music-player" id="musicPlayer" title="Click to play/pause">
+        <span class="music-icon" id="musicIcon">♫</span>
+        <span class="music-label">Romance</span>
+        <span class="music-status" id="musicStatus">● paused</span>
+    </div>
+
+    <div class="container" id="app">
+
+        <!-- ===== STAGE 1: INTRO ===== -->
+        <div id="intro">
+            <div class="big-4">4</div>
+            <h1>Ahmina <span>✦</span></h1>
+            <div class="subhead">Four years of Moon &amp; Moto</div>
+
+            
+
+            <p>
+                Amina ... are you ready to open<br />
+                our <strong>4 years</strong> together?
+            </p>
+            <button class="btn-start" id="btnStart">Yes, Moon</button>
+        </div>
+
+        <!-- ===== STAGE 2: BOXES ===== -->
+        <div id="boxes-stage">
+
+            <h1 style="font-size:2.2rem;">4 <span style="color:#c9a87c;">Memories</span></h1>
+            <div class="subhead" style="border-bottom:none; padding-bottom:6px;">click each box to unlock</div>
+
+            <div class="boxes-grid" id="boxesGrid">
+                <!-- BOX 1 -->
+                <div class="box-card" data-box="1">
+                    <div class="box-icon">📦</div>
+                    <div class="year-label">Year 1</div>
+                    <div class="box-status">✦ unopened ✦</div>
+                    <div class="reveal-content">
+                        <strong>✨ The Morning Sight</strong><br />
+                        "Every morning after school, I would look for you. You didn't know it, but you made my days brighter before college even started. Those morning glances were the beginning of everything."
+                    </div>
+                </div>
+
+                <!-- BOX 2 -->
+                <div class="box-card" data-box="2">
+                    <div class="box-icon">📦</div>
+                    <div class="year-label">Year 2</div>
+                    <div class="box-status">✦ unopened ✦</div>
+                    <div class="reveal-content">
+                        <strong>🏠 The Rooftop Glances</strong><br />
+                        "For two years, we saw each other every day from our house rooftops, but we never spoke. I remember that day after the exams, we met outside my house. That was the first time I heard your voice — and my heart knew it had found its home.I still remember that moment when you were about to fall into the pipe while looking at me. I can never forget it. 😂😭
+"
+                    </div>
+                </div>
+
+                <!-- BOX 3 -->
+                <div class="box-card" data-box="3">
+                    <div class="box-icon">📦</div>
+                    <div class="year-label">Year 3</div>
+                    <div class="box-status">✦ unopened ✦</div>
+                    <div class="reveal-content">
+                        <strong>📞 The First Call — 25th August 2024</strong><br />
+                        "On 25th August 2024, you called me for the first time. That one call changed everything. From that moment, our love journey truly began. Little did I know, that call would be the start of our forever."
+                    </div>
+                </div>
+
+                <!-- BOX 4 — OPENS NEW PAGE -->
+                <div class="box-card" data-box="4">
+                    <div class="box-icon">📦</div>
+                    <div class="year-label">Year 4</div>
+                    <div class="box-status">✦ unopened ✦</div>
+                    <div class="reveal-content">
+                        <strong>🎂 Our First Meetup — 27th October 2024</strong><br />
+                        "27th October 2024 — the day I finally met you in person. It was also our birthday, and we celebrated it together. That day, the world stopped. I saw you, and nothing else mattered."
+                        <br /><br />
+                        <button class="btn-open-year4" id="btnOpenYear4">
+                            📖 memory →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HIDDEN 5th BOX -->
+            <div id="hidden-box">
+                <div class="heart-icon">💌</div>
+                <h3>Our Forever</h3>
+                <div class="love-letter" id="loveLetterDisplay"></div>
+                <button class="btn-open-letter" id="btnRevealLetter">Open my heart ❤️</button>
+                <p style="margin-top:14px; font-size:0.85rem; color:#b8aa9a;">
+                    — from <strong>Moon</strong> to my <strong>Moto</strong> —
+                </p>
+            </div>
+
+            <div class="footer-note">
+                <strong>Ahmina</strong> &nbsp;·&nbsp; 4 years &nbsp;·&nbsp; 25.08.2024 &nbsp;·&nbsp; ∞
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // =============================================
+        //  YOUR LOVE LETTER
+        // =============================================
+        const YOUR_LOVE_LETTER = `
+My dear Moto,
+
+I still remember the first time I saw you. It was a regular morning after school, and I was on my way to college. And then I saw you  smiling, glowing. I knew my heart had found someone special.
+
+For two years, we saw each other every day from our rooftops. We were so close, yet so far. I would watch you, and I would wonder  does she feel what I feel? Does she notice me the way I notice her?
+
+I remember that day after the exam when we finally met outside my house. I heard your voice for the first time.
+
+Then came 25th August 2024 — the day you called me. My hands were shaking, my heart was pounding, and my world was never the same again. That one call started our love story.
+
+And on 27th October 2024 our birthday. I finally held you in my arms. The world stopped. Time stood still.
+
+Today, four years later, I still feel like the luckiest man alive. You are my peace, my joy, my home. Every morning I wake up grateful that you chose me  and I promise to choose you every single day for the rest of my life.
+
+Moto, I never thought I would find someone like you. You are the only person who knows me better than anyone else in this world. You are the solution to every problem I face. Whenever I feel worried or stressed, just the thought of you brings me so much happiness.
+
+No one has ever understood me the way you do. I feel so lucky to have found such a caring and understanding love. You are the one person I have loved more than myself and you are my last love. You are my final destination.
+
+I know that right now, things are difficult for both of us. But I have faith in Allah. In Sha Allah, one day He will accept our prayers and make everything right.
+
+As long as you are with me, I have no fear of anything. You are my strength, my destination, and my entire world.
+
+Happy 4th Anniversary, my Moto. You are my everything — today, tomorrow, and forever.
+
+Always yours,
+ Moon 🌙
+Amina BIBI 😂
+        `;
+
+        // =============================================
+        //  COUNTDOWN
+        // =============================================
+        function updateCountdown() {
+            const anniversary = new Date('August 25, 2026 00:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = anniversary - now;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            const el = document.getElementById('daysCount');
+            if (el) {
+                el.textContent = days > 0 ? days : '0';
+            }
+        }
+        updateCountdown();
+
+        // =============================================
+        //  PETALS
+        // =============================================
+        function createPetals() {
+            const container = document.getElementById('petals-container');
+            for (let i = 0; i < 22; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.animationDuration = (12 + Math.random() * 18) + 's';
+                petal.style.animationDelay = (Math.random() * 20) + 's';
+                petal.style.width = (8 + Math.random() * 14) + 'px';
+                petal.style.height = (8 + Math.random() * 14) + 'px';
+                petal.style.opacity = 0.15 + Math.random() * 0.3;
+                container.appendChild(petal);
+            }
+        }
+        createPetals();
+
+        // =============================================
+        //  MUSIC
+        // =============================================
+        const musicPlayer = document.getElementById('musicPlayer');
+        const musicIcon = document.getElementById('musicIcon');
+        const musicStatus = document.getElementById('musicStatus');
+        let isPlaying = false;
+        let audio = null;
+
+        function initAudio() {
+            if (!audio) {
+                audio = new Audio();
+                audio.src = 'https://www.bensound.com/bensound-music/bensound-romance.mp3';
+                audio.loop = true;
+                audio.volume = 0.25;
+
+                audio.addEventListener('error', function() {
+                    audio.src = 'https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Twin_Musicom/Romantic_Songs/Twin_Musicom_-_01_-_Romantic_Song.mp3';
+                    audio.load();
+                });
+            }
+            return audio;
+        }
+
+        function toggleMusic() {
+            const a = initAudio();
+            if (isPlaying) {
+                a.pause();
+                isPlaying = false;
+                musicIcon.textContent = '♫';
+                musicIcon.classList.add('paused');
+                musicStatus.textContent = '● paused';
+                musicStatus.style.color = '#bbb0a2';
+            } else {
+                a.play().catch(() => {});
+                isPlaying = true;
+                musicIcon.textContent = '♬';
+                musicIcon.classList.remove('paused');
+                musicStatus.textContent = '● playing';
+                musicStatus.style.color = '#c9a87c';
+            }
+        }
+
+        musicPlayer.addEventListener('click', toggleMusic);
+
+        // =============================================
+        //  MAIN LOGIC
+        // =============================================
+        const intro = document.getElementById('intro');
+        const boxesStage = document.getElementById('boxes-stage');
+        const btnStart = document.getElementById('btnStart');
+        const boxes = document.querySelectorAll('.box-card');
+        const hiddenBox = document.getElementById('hidden-box');
+        const loveLetterDisplay = document.getElementById('loveLetterDisplay');
+        const btnRevealLetter = document.getElementById('btnRevealLetter');
+        const btnOpenYear4 = document.getElementById('btnOpenYear4');
+
+        let openedCount = 0;
+        const totalBoxes = 4;
+
+        // ---- Start ----
+        btnStart.addEventListener('click', function() {
+            intro.style.display = 'none';
+            boxesStage.style.display = 'block';
+
+            if (!isPlaying) {
+                toggleMusic();
+            }
+
+            setTimeout(() => {
+                boxesStage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        });
+
+        // ---- Open boxes 1, 2, 3 normally ----
+        boxes.forEach(box => {
+            box.addEventListener('click', function() {
+                // If it's box 4, don't open it here — it opens via button
+                if (this.dataset.box === '4') {
+                    // Just show the content but don't count it as opened
+                    this.classList.add('opened');
+                    this.querySelector('.box-icon').textContent = '📭';
+                    // Don't increment openedCount for box 4
+                    return;
+                }
+
+                if (this.classList.contains('opened')) return;
+
+                this.classList.add('opened');
+                openedCount++;
+                this.querySelector('.box-icon').textContent = '📭';
+
+                // Check if boxes 1,2,3 are all opened (openedCount === 3)
+                if (openedCount === 3) {
+                    setTimeout(() => {
+                        hiddenBox.style.display = 'block';
+                        hiddenBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 500);
+                }
+            });
+        });
+
+        // ---- Box 4: Open new page ----
+        btnOpenYear4.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent triggering the box click
+            // Open year4.html in a new tab
+            window.open('year4.html', '_blank');
+        });
+
+        // ---- Reveal love letter ----
+        btnRevealLetter.addEventListener('click', function() {
+            loveLetterDisplay.textContent = YOUR_LOVE_LETTER;
+            this.textContent = '❤️ Sent with all my heart ❤️';
+            this.disabled = true;
+            this.style.opacity = '0.6';
+            this.style.cursor = 'default';
+        });
+
+        console.log('❤️ Ahmina — 4 Years of Moon & Moto ❤️');
+        console.log('📅 First Call: 25th August 2024');
+        console.log('📅 First Meetup: 27th October 2024');
+        console.log('📸 Add your photo as "meetup.jpg" in the same folder');
+    </script>
+
+</body>
+</html>
