@@ -642,13 +642,13 @@ Amina BIBI 😂
     if (!audio) {
         audio = new Audio();
         // Using a reliable, working HTTPS music URL
-        audio.src = 'https://pixabay.com/music/beautiful-plays-romantic-436840/';
+        audio.src = 'bg.mp3.mp3';
         audio.loop = true;
         audio.volume = 0.25;
 
         // Fallback if the first one fails
         audio.addEventListener('error', function() {
-            audio.src = 'https://pixabay.com/music/beautiful-plays-romantic-436840/';
+            audio.src = 'bg.mp3.mp3';
             audio.load();
         });
     }
